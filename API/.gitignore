@@ -458,3 +458,4 @@ $RECYCLE.BIN/
 appsettings.json
 appsettings.Development.json
 Properties/launchSettings.json
+*.db
