@@ -19,6 +19,14 @@ namespace Infrastructure.Identity
                 .WithOne(x => x.User)
                 .HasForeignKey(x => x.UserId);
 
+            builder.Entity<AppUser>()
+                .Property(x => x.UserName).HasMaxLength(16);
+
+            builder.Entity<AppUser>()
+                .Property(x => x.DisplayName).HasMaxLength(16);
+
+            builder.Entity<UserLink>()
+                .Property(x => x.DisplayName).HasMaxLength(32);
 
             base.OnModelCreating(builder);
         }
