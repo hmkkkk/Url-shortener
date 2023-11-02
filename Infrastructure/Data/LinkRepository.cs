@@ -2,6 +2,7 @@ using Core.Entities;
 using Core.Interfaces;
 using Infrastructure.Identity;
 using Microsoft.EntityFrameworkCore;
+using Infrastructure.Helpers;
 
 namespace Infrastructure.Data
 {
@@ -15,6 +16,8 @@ namespace Infrastructure.Data
 
         public async Task<UserLink> AddNewLink(UserLink userLink, CancellationToken cancellationToken)
         {
+            userLink.ShortenedUrl = LinkHelpers.GenerateShortenedUrl();
+
             _context.Add(userLink);
 
             await _context.SaveChangesAsync(cancellationToken);

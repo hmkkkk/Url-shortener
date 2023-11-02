@@ -84,6 +84,5 @@ namespace API.Controllers
 
             return _mapper.Map<LinkDto>(userLink);
         }
-
     }
 }
